@@ -40,8 +40,8 @@ class TicTacToe {
     }
 
     noMoreTurns() {
-        for(let nnn of this.bbb){
-            if(nnn.includes(null)) return false; 
+        for(let el of this.bbb){
+            if(el.includes(null)) return false; 
         }
         return true;
     }
