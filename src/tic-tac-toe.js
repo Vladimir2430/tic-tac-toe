@@ -1,48 +1,47 @@
 class TicTacToe {
     constructor() {
-        this.curPl='x';
-        this.field=[
+        this.aaa='x';
+        this.bbb=[
             [null,null,null],
             [null,null,null],
             [null,null,null]
         ]
-        this.winner=null;
-        this.isWin=false;
+        this.ccc=null;
+        this.ddd=false;
     }
 
     getCurrentPlayerSymbol() {
-        return this.curPl;
+        return this.aaa;
     }
 
     nextTurn(rowIndex, columnIndex) {
-        if(!this.field[rowIndex][columnIndex]){
-            this.field[rowIndex][columnIndex]=this.curPl;
-            (this.curPl==='x')?this.curPl='o':this.curPl='x';
+         if(!this.bbb[rowIndex][columnIndex]){
+            this.bbb[rowIndex][columnIndex]=this.aaa;
+            (this.aaa==='x')?this.aaa='o':this.aaa='x';
         }
     }
 
     isFinished() {
-        this.isWin=((this.field[0][0]==this.field[0][1])&&(this.field[0][1]==this.field[0][2])&&this.field[0][2]!=null)||
-                    ((this.field[1][0]==this.field[1][1])&&(this.field[1][1]==this.field[1][2])&&this.field[1][2]!=null)||
-                    ((this.field[2][0]==this.field[2][1])&&(this.field[2][1]==this.field[2][2])&&this.field[2][2]!=null)||
-                    ((this.field[0][0]==this.field[1][0])&&(this.field[1][0]==this.field[2][0])&&this.field[2][0]!=null)||
-                    ((this.field[0][1]==this.field[1][1])&&(this.field[1][1]==this.field[2][1])&&this.field[2][1]!=null)||
-                    ((this.field[0][2]==this.field[1][2])&&(this.field[1][2]==this.field[2][2])&&this.field[2][2]!=null)||
-                    ((this.field[0][0]==this.field[1][1])&&(this.field[1][1]==this.field[2][2])&&this.field[2][2]!=null)||
-                    ((this.field[0][2]==this.field[1][1])&&(this.field[1][1]==this.field[2][0])&&this.field[2][0]!=null);
-        return this.isWin||this.noMoreTurns();
-
+        this.ddd=((this.bbb[0][0]==this.bbb[0][1])&&(this.bbb[0][1]==this.bbb[0][2])&&this.bbb[0][2]!=null)||
+            ((this.bbb[1][0]==this.bbb[1][1])&&(this.bbb[1][1]==this.bbb[1][2])&&this.bbb[1][2]!=null)||
+            ((this.bbb[2][0]==this.bbb[2][1])&&(this.bbb[2][1]==this.bbb[2][2])&&this.bbb[2][2]!=null)||
+            ((this.bbb[0][0]==this.bbb[1][0])&&(this.bbb[1][0]==this.bbb[2][0])&&this.bbb[2][0]!=null)||
+            ((this.bbb[0][1]==this.bbb[1][1])&&(this.bbb[1][1]==this.bbb[2][1])&&this.bbb[2][1]!=null)||
+            ((this.bbb[0][2]==this.bbb[1][2])&&(this.bbb[1][2]==this.bbb[2][2])&&this.bbb[2][2]!=null)||
+            ((this.bbb[0][0]==this.bbb[1][1])&&(this.bbb[1][1]==this.bbb[2][2])&&this.bbb[2][2]!=null)||
+            ((this.bbb[0][2]==this.bbb[1][1])&&(this.bbb[1][1]==this.bbb[2][0])&&this.bbb[2][0]!=null);
+        return this.ddd||this.noMoreTurns();
     }
 
-    getWinner() {//does not work
-        if(this.isFinished()&&this.isWin)
-            return this.curPl==='x'?'o':'x';
-        return null;
+    getWinner() {
+         if(this.isFinished()&&this.ddd)
+            return this.aaa==='x'?'o':'x';
+         return null;
     }
 
     noMoreTurns() {
-        for(let el of this.field){
-            if(el.includes(null)) return false; 
+        for(let nn of this.bbb){
+            if(nn.includes(null)) return false; 
         }
         return true;
     }
@@ -52,7 +51,7 @@ class TicTacToe {
     }
 
     getFieldValue(rowIndex, colIndex) {
-        return this.field[rowIndex][colIndex];
+         return this.bbb[rowIndex][colIndex];
     }
 }
 
