@@ -30,7 +30,7 @@ class TicTacToe {
             ((this.bbb[0][2]==this.bbb[1][2])&&(this.bbb[1][2]==this.bbb[2][2])&&this.bbb[2][2]!=null)||
             ((this.bbb[0][0]==this.bbb[1][1])&&(this.bbb[1][1]==this.bbb[2][2])&&this.bbb[2][2]!=null)||
             ((this.bbb[0][2]==this.bbb[1][1])&&(this.bbb[1][1]==this.bbb[2][0])&&this.bbb[2][0]!=null);
-        return this.isWin||this.noMoreTurns();
+        return this.ddd||this.noMoreTurns();
     }
 
     getWinner() {
@@ -40,8 +40,8 @@ class TicTacToe {
     }
 
     noMoreTurns() {
-        for(let el of this.bbb){
-            if(el.includes(null)) return false; 
+        for(let nn of this.bbb){
+            if(nn.includes(null)) return false; 
         }
         return true;
     }
