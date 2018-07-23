@@ -1,59 +1,57 @@
-class TicTacToe {
-    constructor() {
-        this.curPl='x';
-        this.field=[
-            [null,null,null],
-            [null,null,null],
-            [null,null,null]
-        ]
-        this.winner=null;
-        this.isWin=false;
-    }
+module.exports = class TicTacToe {
+  constructor() {
+    this.currentPlayerSymbol = 'x';
+    this.winner= null;
+    this.isWin = false;
+    this.field = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ]
 
-    getCurrentPlayerSymbol() {
-        return this.curPl;
-    }
+  }
 
-    nextTurn(rowIndex, columnIndex) {
-        if(!this.field[rowIndex][columnIndex]){
-            this.field[rowIndex][columnIndex]=this.curPl;
-            (this.curPl==='x')?this.curPl='o':this.curPl='x';
-        }
-    }
+  getCurrentPlayerSymbol() {
+    return this.currentPlayerSymbol;
+  }
 
-    isFinished() {
-        this.isWin=((this.field[0][0]==this.field[0][1])&&(this.field[0][1]==this.field[0][2])&&this.field[0][2]!=null)||
-                    ((this.field[1][0]==this.field[1][1])&&(this.field[1][1]==this.field[1][2])&&this.field[1][2]!=null)||
-                    ((this.field[2][0]==this.field[2][1])&&(this.field[2][1]==this.field[2][2])&&this.field[2][2]!=null)||
-                    ((this.field[0][0]==this.field[1][0])&&(this.field[1][0]==this.field[2][0])&&this.field[2][0]!=null)||
-                    ((this.field[0][1]==this.field[1][1])&&(this.field[1][1]==this.field[2][1])&&this.field[2][1]!=null)||
-                    ((this.field[0][2]==this.field[1][2])&&(this.field[1][2]==this.field[2][2])&&this.field[2][2]!=null)||
-                    ((this.field[0][0]==this.field[1][1])&&(this.field[1][1]==this.field[2][2])&&this.field[2][2]!=null)||
-                    ((this.field[0][2]==this.field[1][1])&&(this.field[1][1]==this.field[2][0])&&this.field[2][0]!=null);
-        return this.isWin||this.noMoreTurns();
-
+  nextTurn(rowIndex, columnIndex) {
+    if (!this.field[rowIndex][columnIndex]) {
+      this.field[rowIndex][columnIndex] = this.currentPlayerSymbol;
+      this.currentPlayerSymbol === 'x' ? this.currentPlayerSymbol  = 'o' : this.currentPlayerSymbol = 'x';
     }
+  }
 
-    getWinner() {//does not work
-        if(this.isFinished()&&this.isWin)
-            return this.curPl==='x'?'o':'x';
-        return null;
-    }
+  isFinished() {
+    this.isWin = ((this.field[0][0] == this.field[0][1]) && (this.field[0][1] == this.field[0][2]) && this.field[0][2]!=null) ||
+                 ((this.field[1][0] == this.field[1][1]) && (this.field[1][1] == this.field[1][2]) && this.field[1][2]!=null) ||
+                 ((this.field[2][0] == this.field[2][1]) && (this.field[2][1] == this.field[2][2]) && this.field[2][2]!=null) ||
+                 ((this.field[0][0] == this.field[1][0]) && (this.field[1][0] == this.field[2][0]) && this.field[2][0]!=null) ||
+                 ((this.field[0][1] == this.field[1][1]) && (this.field[1][1] == this.field[2][1]) && this.field[2][1]!=null) ||
+                 ((this.field[0][2] == this.field[1][2]) && (this.field[1][2] == this.field[2][2]) && this.field[2][2]!=null) ||
+                 ((this.field[0][0] == this.field[1][1]) && (this.field[1][1] == this.field[2][2]) && this.field[2][2]!=null) ||
+                 ((this.field[0][2] == this.field[1][1]) && (this.field[1][1] == this.field[2][0]) && this.field[2][0]!=null);
+    return this.isWin || this.noMoreTurns();
+  }
 
-    noMoreTurns() {
-        for(let el of this.field){
-            if(el.includes(null)) return false; 
-        }
-        return true;
-    }
+  getWinner() {
+    if (this.isFinished() && this.isWin)
+      return this.currentPlayerSymbol === 'x' ? 'o' : 'x';
+      return null;
+  }
 
-    isDraw() {
-        return this.noMoreTurns()&&!this.getWinner();
+  noMoreTurns() {
+    for(let i of this.field) {
+      if(i.includes(null)) return false;
     }
+    return true;
+  }
 
-    getFieldValue(rowIndex, colIndex) {
-        return this.field[rowIndex][colIndex];
-    }
+  isDraw() {
+    return this.noMoreTurns() && !this.getWinner();
+  }
+
+  getFieldValue(rowIndex, colIndex) {
+    return this.field[rowIndex][colIndex];
+  }
 }
-
-module.exports = TicTacToe;
