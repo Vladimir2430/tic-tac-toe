@@ -23,14 +23,14 @@ module.exports = class TicTacToe {
   }
 
   isFinished() {
-    this.isWin = ((this.field[0][0] == this.field[0][1]) && (this.field[0][1] == this.field[0][2]) && this.field[0][2]!=null) ||
-                 ((this.field[1][0] == this.field[1][1]) && (this.field[1][1] == this.field[1][2]) && this.field[1][2]!=null) ||
-                 ((this.field[2][0] == this.field[2][1]) && (this.field[2][1] == this.field[2][2]) && this.field[2][2]!=null) ||
-                 ((this.field[0][0] == this.field[1][0]) && (this.field[1][0] == this.field[2][0]) && this.field[2][0]!=null) ||
-                 ((this.field[0][1] == this.field[1][1]) && (this.field[1][1] == this.field[2][1]) && this.field[2][1]!=null) ||
-                 ((this.field[0][2] == this.field[1][2]) && (this.field[1][2] == this.field[2][2]) && this.field[2][2]!=null) ||
-                 ((this.field[0][0] == this.field[1][1]) && (this.field[1][1] == this.field[2][2]) && this.field[2][2]!=null) ||
-                 ((this.field[0][2] == this.field[1][1]) && (this.field[1][1] == this.field[2][0]) && this.field[2][0]!=null);
+    this.isWin = ((this.field[0][0] === this.field[0][1]) && (this.field[0][1] === this.field[0][2]) && this.field[0][2] !== null) ||
+                 ((this.field[1][0] === this.field[1][1]) && (this.field[1][1] === this.field[1][2]) && this.field[1][2] !== null) ||
+                 ((this.field[2][0] === this.field[2][1]) && (this.field[2][1] === this.field[2][2]) && this.field[2][2] !== null) ||
+                 ((this.field[0][0] === this.field[1][0]) && (this.field[1][0] === this.field[2][0]) && this.field[2][0] !== null) ||
+                 ((this.field[0][1] === this.field[1][1]) && (this.field[1][1] === this.field[2][1]) && this.field[2][1] !== null) ||
+                 ((this.field[0][2] === this.field[1][2]) && (this.field[1][2] === this.field[2][2]) && this.field[2][2] !== null) ||
+                 ((this.field[0][0] === this.field[1][1]) && (this.field[1][1] === this.field[2][2]) && this.field[2][2] !== null) ||
+                 ((this.field[0][2] === this.field[1][1]) && (this.field[1][1] === this.field[2][0]) && this.field[2][0] !== null);
     return this.isWin || this.noMoreTurns();
   }
 
